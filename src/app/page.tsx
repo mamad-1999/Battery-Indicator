@@ -16,12 +16,11 @@ export default function Home() {
   }, [batteryHeight, getBattery, battery?.level])
 
   function calculateBatteryHeight(batteryLevel: number) {
-    // Ensure battery level is within the valid range (0 to 100)
     const clampedBatteryLevel = Math.max(0, Math.min(batteryLevel, 100));
 
     // Calculate the height based on the battery level
     const maxHeight = 262; // Maximum height of the battery div
-    const height = (clampedBatteryLevel / 100) * maxHeight;
+    const height = Math.round((clampedBatteryLevel / 100) * maxHeight);
 
     setBatteryHeight(height);
   }
@@ -41,7 +40,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <BatteryInfo level={battery ? battery.level! * 100 : 0} height={batteryHeight} />
+      {
+        battery ?
+          <BatteryInfo level={battery ? battery.level! * 100 : 0} height={batteryHeight} />
+          : null
+      }
     </main >
   )
 }
