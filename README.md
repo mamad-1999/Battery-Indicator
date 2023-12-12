@@ -1,4 +1,4 @@
-# Battery Indicator App
+# Battery Indicator App 🔋🪫
 
 This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styling, and includes Progressive Web App (PWA) features.
 
@@ -25,3 +25,5 @@ This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styl
 
 - Open the app in a web browser.
 - View the battery charge level displayed visually.
+
+![low-battery_1faab](https://github.com/mamad-1999/Battery-Check/assets/91375726/02d2dd9d-c9f3-408e-b91c-8cdb19f3a1b7)
