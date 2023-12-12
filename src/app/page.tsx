@@ -42,7 +42,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center">
       {
         battery ?
-          <BatteryInfo level={battery ? battery.level! * 100 : 0} height={batteryHeight} />
+          <BatteryInfo level={battery ? Math.round(battery.level! * 100) : 0} height={batteryHeight} />
           : null
       }
     </main >
