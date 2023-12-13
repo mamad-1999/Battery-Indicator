@@ -14,6 +14,20 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     workboxOptions: {
         disableDevLogs: true,
     },
+    extendDefaultRuntimeCaching: (defaultRuntimeCaching) => {
+        // Add a new caching strategy for a specific URL pattern
+        defaultRuntimeCaching.push({
+            urlPattern: /^https?.*/,
+            handler: 'CacheFirst',
+            options: {
+                cacheName: 'api-data-cache',
+                expiration: {
+                    maxEntries: 200,
+                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                },
+            },
+        });
+    },
     // ... other options you like
 });
 /** @type {import('next').NextConfig} */
