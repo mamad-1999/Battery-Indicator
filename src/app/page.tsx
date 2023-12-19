@@ -32,7 +32,6 @@ export default function Home() {
       const battery = await navigator.getBattery();
       setBattery(battery)
       calculateBatteryHeight(battery.level * 100)
-      console.log(battery);
     } catch (err) {
       console.warn('Your browser not support this feature.');
     }

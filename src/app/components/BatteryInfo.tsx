@@ -1,7 +1,7 @@
 import React from "react";
 
 type BatteryInfoProps = {
-    level: any,
+    level: number,
     height: number
 }
 
