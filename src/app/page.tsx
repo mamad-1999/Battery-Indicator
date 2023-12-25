@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import BatteryInfo from "./components/BatteryInfo"
+import Link from "next/link"
 
 type BatteryType = {
   level?: number | undefined
@@ -44,6 +45,8 @@ export default function Home() {
           <BatteryInfo level={battery ? Math.round(battery.level! * 100) : 0} height={batteryHeight} />
           : null
       }
+      <Link href={""} className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand</Link>
+      <p className="fixed bottom-2 text-sm">&copy; 2023 All Rights Reserved</p>
     </main >
   )
 }
