@@ -4,17 +4,14 @@ import { useEffect, useState } from "react"
 import BatteryInfo from "./components/BatteryInfo"
 import Link from "next/link"
 
-type BatteryType = {
-  level?: number | undefined
-}
-
 export default function Home() {
-  const [battery, setBattery] = useState<BatteryType | undefined>()
+  const [level, setLevel] = useState<number>(0)
   const [batteryHeight, setBatteryHeight] = useState<number>(262)
+  const [isCharging, setIsCharging] = useState<boolean>(false)
 
   useEffect(() => {
     getBattery()
-  }, [batteryHeight, getBattery, battery?.level])
+  }, [batteryHeight, getBattery, level])
 
   function calculateBatteryHeight(batteryLevel: number) {
     const clampedBatteryLevel = Math.max(0, Math.min(batteryLevel, 100));
@@ -31,7 +28,9 @@ export default function Home() {
     try {
       //@ts-ignore
       const battery = await navigator.getBattery();
-      setBattery(battery)
+      setLevel(battery.level)
+      setIsCharging(battery.charging)
+
       calculateBatteryHeight(battery.level * 100)
     } catch (err) {
       console.warn('Your browser not support this feature.');
@@ -39,10 +38,10 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-4">
       {
-        battery ?
-          <BatteryInfo level={battery ? Math.round(battery.level! * 100) : 0} height={batteryHeight} />
+        level ?
+          <BatteryInfo level={level ? Math.round(level * 100) : 0} isCharging={isCharging} height={batteryHeight} />
           : null
       }
       <Link href={""} className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand</Link>
