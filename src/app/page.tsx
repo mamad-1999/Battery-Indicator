@@ -13,6 +13,16 @@ export default function Home() {
     getBattery()
   }, [batteryHeight, getBattery, level])
 
+  useEffect(() => {
+    window.addEventListener('levelchange', getBattery)
+    window.addEventListener('chargingchange', getBattery)
+
+    return () => {
+      window.removeEventListener('levelchange', getBattery)
+      window.removeEventListener('chargingchange', getBattery)
+    }
+  }, [getBattery])
+
   function calculateBatteryHeight(batteryLevel: number) {
     const clampedBatteryLevel = Math.max(0, Math.min(batteryLevel, 100));
 
@@ -30,6 +40,7 @@ export default function Home() {
       const battery = await navigator.getBattery();
       setLevel(battery.level)
       setIsCharging(battery.charging)
+      console.log(battery);
 
       calculateBatteryHeight(battery.level * 100)
     } catch (err) {
