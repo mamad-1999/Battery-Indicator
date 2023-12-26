@@ -13,16 +13,6 @@ export default function Home() {
     getBattery()
   }, [batteryHeight, getBattery, level])
 
-  useEffect(() => {
-    window.addEventListener('levelchange', getBattery)
-    window.addEventListener('chargingchange', getBattery)
-
-    return () => {
-      window.removeEventListener('levelchange', getBattery)
-      window.removeEventListener('chargingchange', getBattery)
-    }
-  }, [getBattery])
-
   function calculateBatteryHeight(batteryLevel: number) {
     const clampedBatteryLevel = Math.max(0, Math.min(batteryLevel, 100));
 
@@ -34,15 +24,27 @@ export default function Home() {
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  async function getBattery() {
+  function getBattery() {
     try {
       //@ts-ignore
-      const battery = await navigator.getBattery();
-      setLevel(battery.level)
-      setIsCharging(battery.charging)
-      console.log(battery);
+      navigator.getBattery().then((battery) => {
 
-      calculateBatteryHeight(battery.level * 100)
+        const updateBattery = () => {
+          setLevel(battery.level)
+          setIsCharging(battery.charging)
+          calculateBatteryHeight(battery.level * 100)
+        }
+
+        battery.onchargingchange = () => {
+          updateBattery()
+        }
+        battery.onlevelchange = () => {
+          updateBattery()
+        }
+
+        updateBattery()
+      });
+
     } catch (err) {
       console.warn('Your browser not support this feature.');
     }
