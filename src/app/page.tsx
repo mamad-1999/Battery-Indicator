@@ -57,7 +57,7 @@ export default function Home() {
           <BatteryInfo level={level ? Math.round(level * 100) : 0} isCharging={isCharging} height={batteryHeight} />
           : null
       }
-      <Link href={""} className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand</Link>
+      <Link href={"https://github.com/mamad-1999"} className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand</Link>
       <p className="fixed bottom-2 text-sm">&copy; 2023 All Rights Reserved</p>
     </main >
   )
