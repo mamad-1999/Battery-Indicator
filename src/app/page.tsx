@@ -61,7 +61,7 @@ export default function Home() {
           : <p className="text-center">I'm Sorry, Your Browser does not support Battery Manager</p>
       }
       <Link
-        href={"https://github.com/mamad-1999"}
+        href={"https://github.com/mamad-1999"} target="_blank"
         className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand
       </Link>
       <p className="fixed bottom-2 text-sm">&copy; 2023 All Rights Reserved</p>
