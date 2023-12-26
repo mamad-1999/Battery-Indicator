@@ -16,7 +16,7 @@ const BatteryInfo = ({ level, height, isCharging }: BatteryInfoProps) => {
             <div className="flex flex-col justify-center items-center mb-6">
                 <p className="mb-2 text-lg font-light">Battery Level</p>
                 <h3 className="text-7xl font-bold">
-                    {level ? level! : 0}%
+                    {level ? level! : 0}<span className="text-5xl">%</span>
                 </h3>
             </div>
             <div className="flex items-center justify-center relative ">
@@ -35,7 +35,7 @@ const BatteryInfo = ({ level, height, isCharging }: BatteryInfoProps) => {
             </div>
             {isCharging ?
                 <div className="flex justify-center items-center gap-2 mb-14">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="feather feather-battery-charging w-5 h-5 animate-pulse stroke-lime-800"><path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3.19"></path><line x1="23" y1="13" x2="23" y2="11"></line><polyline points="11 6 7 12 13 12 9 18"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-7 h-7 animate-pulse stroke-lime-800"><path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3.19"></path><line x1="23" y1="13" x2="23" y2="11"></line><polyline points="11 6 7 12 13 12 9 18"></polyline></svg>
                     <p className="font-normal">Charging
                         <span className="animate-pulse">...</span>
                     </p>

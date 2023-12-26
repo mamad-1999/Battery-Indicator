@@ -14,11 +14,9 @@ export default function Home() {
   }, [batteryHeight, getBattery, level])
 
   function calculateBatteryHeight(batteryLevel: number) {
-    const clampedBatteryLevel = Math.max(0, Math.min(batteryLevel, 100));
-
     // Calculate the height based on the battery level
     const maxHeight = 262; // Maximum height of the battery div
-    const height = Math.round((clampedBatteryLevel / 100) * maxHeight);
+    const height = Math.round((batteryLevel / 100) * maxHeight);
 
     setBatteryHeight(height);
   }
@@ -51,13 +49,21 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
       {
         level ?
-          <BatteryInfo level={level ? Math.round(level * 100) : 0} isCharging={isCharging} height={batteryHeight} />
-          : null
+          <BatteryInfo
+            level={level ? Math.round(level * 100) : 0}
+            isCharging={isCharging}
+            height={batteryHeight}
+          />
+          // eslint-disable-next-line react/no-unescaped-entities
+          : <p className="text-center">I'm Sorry, Your Browser does not support Battery Manager</p>
       }
-      <Link href={"https://github.com/mamad-1999"} className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand</Link>
+      <Link
+        href={"https://github.com/mamad-1999"}
+        className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand
+      </Link>
       <p className="fixed bottom-2 text-sm">&copy; 2023 All Rights Reserved</p>
     </main >
   )
