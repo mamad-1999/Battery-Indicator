@@ -15,6 +15,10 @@ This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styl
 - Responsive design with Tailwind CSS for styling.
 - PWA capabilities for offline usage.
 
+----
+![photo_2023-12-27_14-55-13](https://github.com/mamad-1999/Battery-Indicator/assets/91375726/915961df-3ffd-4f5e-94b3-9a2ae782c62b)
+----
+
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/): React framework for building web applications.
