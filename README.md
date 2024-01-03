@@ -5,7 +5,7 @@ This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styl
 ---- 
 
 <p align="center">
-  <img width="300px" hight="300px" src="https://github.com/mamad-1999/Battery-Check/assets/91375726/d61f15e4-e47b-4091-a6e5-6863c6463c43" alt="js" />
+  <img width="300px" hight="300px" src="https://github.com/mamad-1999/Battery-Indicator/assets/91375726/d31dd8bd-3576-440e-829b-ecc0131a7728" alt="js" />
 </p>
 
 ---- 
