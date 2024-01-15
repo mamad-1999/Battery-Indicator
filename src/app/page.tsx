@@ -14,7 +14,6 @@ export default function Home() {
   }, [batteryHeight, getBattery, level])
 
   function calculateBatteryHeight(batteryLevel: number) {
-    // Calculate the height based on the battery level
     const maxHeight = 262; // Maximum height of the battery div
     const height = Math.round((batteryLevel / 100) * maxHeight);
 
@@ -26,25 +25,19 @@ export default function Home() {
     try {
       //@ts-ignore
       navigator.getBattery().then((battery) => {
-
         const updateBattery = () => {
-          setLevel(battery.level)
-          setIsCharging(battery.charging)
-          calculateBatteryHeight(battery.level * 100)
-        }
+          setLevel(battery.level);
+          setIsCharging(battery.charging);
+          calculateBatteryHeight(battery.level * 100);
+        };
 
-        battery.onchargingchange = () => {
-          updateBattery()
-        }
-        battery.onlevelchange = () => {
-          updateBattery()
-        }
+        battery.addEventListener('chargingchange', updateBattery);
+        battery.addEventListener('levelchange', updateBattery);
 
-        updateBattery()
+        updateBattery();
       });
-
     } catch (err) {
-      console.warn('Your browser not support this feature.');
+      console.warn('Your browser does not support this feature.');
     }
   }
 
