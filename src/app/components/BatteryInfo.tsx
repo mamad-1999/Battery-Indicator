@@ -27,16 +27,10 @@ const BatteryInfo = ({ level, height, isCharging }: BatteryInfoProps) => {
             </div>
             {isCharging && (
                 <div className="flex justify-center items-center gap-2 mb-14">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        className="w-7 h-7 animate-pulse stroke-lime-800"
-                    >
-                        <path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3.19"></path>
-                        <line x1="23" y1="13" x2="23" y2="11"></line>
-                        <polyline points="11 6 7 12 13 12 9 18"></polyline>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 fill-lime-600 animate-pulse" height="1em" viewBox="0 0 576 320">
+                        <path
+                            d="M 80 288 L 146 288 Q 148 307 161 320 L 80 320 Q 46 319 23 297 Q 1 274 0 240 L 0 80 Q 1 46 23 23 Q 46 1 80 0 L 276 0 L 242 32 L 80 32 Q 60 33 46 46 Q 33 60 32 80 L 32 240 Q 33 260 46 274 Q 60 287 80 288 L 80 288 Z M 236 320 L 270 288 L 432 288 Q 452 287 466 274 Q 479 260 480 240 L 480 80 Q 479 60 466 46 Q 452 33 432 32 L 366 32 Q 364 13 351 0 L 432 0 Q 466 1 489 23 Q 511 46 512 80 L 512 240 Q 511 274 489 297 Q 466 319 432 320 L 236 320 L 236 320 Z M 560 96 Q 575 97 576 112 L 576 208 Q 575 223 560 224 Q 545 223 544 208 L 544 112 Q 545 97 560 96 L 560 96 Z M 192 168 L 240 168 Q 249 168 254 175 Q 258 183 255 191 L 235 233 L 320 152 L 272 152 Q 263 152 259 145 Q 254 137 258 129 L 277 87 L 192 168 L 192 168 Z M 314 16 Q 325 17 331 25 L 331 25 Q 336 34 332 45 L 297 120 L 346 120 Q 366 122 368 142 Q 368 151 361 157 L 212 299 Q 206 304 198 304 Q 187 303 181 295 Q 176 286 180 276 L 215 200 L 166 200 Q 146 198 144 178 Q 144 169 151 163 L 300 22 Q 306 16 314 16 L 314 16 Z"
+                        />
                     </svg>
                     <p className="font-normal">
                         Charging<span className="animate-pulse">...</span>

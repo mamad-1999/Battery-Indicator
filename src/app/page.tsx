@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react"
 import BatteryInfo from "./components/BatteryInfo"
 import Link from "next/link"
+import './loader.css'
 
 export default function Home() {
   const [level, setLevel] = useState<number>(0)
   const [batteryHeight, setBatteryHeight] = useState<number>(262)
   const [isCharging, setIsCharging] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     getBattery()
@@ -26,6 +28,7 @@ export default function Home() {
       //@ts-ignore
       navigator.getBattery().then((battery) => {
         const updateBattery = () => {
+          setLoading(false)
           setLevel(battery.level);
           setIsCharging(battery.charging);
           calculateBatteryHeight(battery.level * 100);
@@ -44,14 +47,14 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
       {
-        level ?
+        loading ?
+          <div className="loader"></div>
+          :
           <BatteryInfo
             level={level ? Math.round(level * 100) : 0}
             isCharging={isCharging}
             height={batteryHeight}
           />
-          // eslint-disable-next-line react/no-unescaped-entities
-          : <p className="text-center">I'm Sorry, Your Browser does not support Battery Manager</p>
       }
       <Link
         href={"https://github.com/mamad-1999"} target="_blank"
