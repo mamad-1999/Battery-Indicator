@@ -1,6 +1,6 @@
-# Battery Indicator App 🔋🪫
+## Battery Indicator App 🔋🪫
 
-This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styling, and includes Progressive Web App (PWA) features.
+#### This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styling, and includes Progressive Web App (PWA) features.
 ---- 
 
 <p align="center">
