@@ -1,5 +1,3 @@
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/575118ad-b5bf-4bf8-9f2e-7f360ef9bf8d/deploy-status)](https://app.netlify.com/sites/battery-information/deploys)
 # Battery Indicator App 🔋🪫
 
 This is a simple Battery Indicator app built with Next.js, Tailwind CSS for styling, and includes Progressive Web App (PWA) features.
