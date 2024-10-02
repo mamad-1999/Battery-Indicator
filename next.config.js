@@ -3,15 +3,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     aggressiveFrontEndNavCaching: true,
     reloadOnOnline: true,
     swcMinify: true,
-    disable: process.env.NODE_ENV === "development",
+    // disable: process.env.NODE_ENV === "development",
     dest: "public",
-    // fallbacks: {
-    //     image: "/static/images/fallback.png",
-    //     document: "/fallback", // if you want to fallback to a custom page rather than /_offline
-    //     font: '/static/font/fallback.woff2',
-    //     audio: ...,
-    //     video: ...,
-    // },
     workboxOptions: {
         disableDevLogs: true,
     },
@@ -28,9 +21,22 @@ const withPWA = require("@ducanh2912/next-pwa").default({
                 },
             },
         });
+
+        // Caching strategy for the video file
+        defaultRuntimeCaching.push({
+            urlPattern: /\/video\/bg_v2\.mp4$/,
+            handler: 'CacheFirst',
+            options: {
+                cacheName: 'video-cache',
+                expiration: {
+                    maxEntries: 1,
+                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                },
+            },
+        });
     },
-    // ... other options you like
 });
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // ... other options you like
