@@ -21,19 +21,6 @@ const withPWA = require("@ducanh2912/next-pwa").default({
                 },
             },
         });
-
-        // Caching strategy for the video file
-        defaultRuntimeCaching.push({
-            urlPattern: /\/video\/bg_v2\.mp4$/,
-            handler: 'CacheFirst',
-            options: {
-                cacheName: 'video-cache',
-                expiration: {
-                    maxEntries: 1,
-                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-                },
-            },
-        });
     },
 });
 
