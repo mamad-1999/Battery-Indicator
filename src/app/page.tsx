@@ -45,7 +45,15 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+    <main className="relative flex min-h-screen flex-col items-center justify-center gap-4 px-4 overflow-hidden">
+      <video
+        src={"video/bg_v2.mp4"}
+        autoPlay
+        loop
+        playsInline
+        className="pointer-events-none absolute left-0 top-0 min-h-screen w-full object-cover transition-opacity delay-1000 duration-1000"
+      />
+
       {
         loading ?
           <div className="loader"></div>
