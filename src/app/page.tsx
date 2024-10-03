@@ -36,7 +36,6 @@ export default function Home() {
           calculateBatteryHeight(battery.level * 100);
 
           const levelConvert = battery.level ? Math.round(battery.level * 100) : 0;
-          console.log(levelConvert);
 
           if (levelConvert < 40 && levelConvert >= 20) {
             setChargeColor("#f4c210")
