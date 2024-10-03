@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import BatteryInfo from "./components/BatteryInfo"
+import Animation from "./components/animation"
 import Link from "next/link"
 import './loader.css'
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [batteryHeight, setBatteryHeight] = useState<number>(262)
   const [isCharging, setIsCharging] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
+  const [chargeColor, setChargeColor] = useState<string>("#83da12")
 
   useEffect(() => {
     getBattery()
@@ -32,6 +34,17 @@ export default function Home() {
           setLevel(battery.level);
           setIsCharging(battery.charging);
           calculateBatteryHeight(battery.level * 100);
+
+          const levelConvert = battery.level ? Math.round(battery.level * 100) : 0;
+          console.log(levelConvert);
+
+          if (levelConvert < 40 && levelConvert >= 20) {
+            setChargeColor("#f4c210")
+          } else if (levelConvert < 20 && levelConvert >= 0) {
+            setChargeColor("#ef544e")
+          } else {
+            setChargeColor("#83da12")
+          }
         };
 
         battery.addEventListener('chargingchange', updateBattery);
@@ -56,19 +69,23 @@ export default function Home() {
 
       {
         loading ?
-          <div className="loader"></div>
+          <div className="loader z-20"></div>
           :
-          <BatteryInfo
-            level={level ? Math.round(level * 100) : 0}
-            isCharging={isCharging}
-            height={batteryHeight}
-          />
+          <>
+            <BatteryInfo
+              level={level ? Math.round(level * 100) : 0}
+              isCharging={isCharging}
+              height={batteryHeight}
+            />
+            <Link
+              href={"https://github.com/mamad-1999"} target="_blank"
+              className="fixed bottom-8 text-base font-semibold z-10">Mohammad Yousefvand
+            </Link>
+            <p className="fixed bottom-2 text-sm z-10">&copy; 2023 All Rights Reserved</p>
+            <Animation color={chargeColor} />
+          </>
       }
-      <Link
-        href={"https://github.com/mamad-1999"} target="_blank"
-        className="fixed bottom-8 text-base font-semibold">Mohammad Yousefvand
-      </Link>
-      <p className="fixed bottom-2 text-sm">&copy; 2023 All Rights Reserved</p>
+
     </main >
   )
 }
