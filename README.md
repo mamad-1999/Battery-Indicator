@@ -28,7 +28,7 @@
 | UC Browser           | ✅         | 13.0+                  |                                                |
 
 ----
-![photo_2023-12-27_14-55-13](https://github.com/mamad-1999/Battery-Indicator/assets/91375726/915961df-3ffd-4f5e-94b3-9a2ae782c62b)
+![Untitled design(1)](https://github.com/user-attachments/assets/08245d88-bbf2-4673-99d0-2d6a284e2ad0)
 ----
 
 ## Technologies Used
