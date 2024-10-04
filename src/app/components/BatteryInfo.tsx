@@ -11,8 +11,6 @@ const RED_CHARGE = "bg-gradient-to-r from-red-300 from-5% via-red-400 via-50% to
 const YELLOW_CHARGE = "bg-gradient-to-r from-yellow-300 from-5% via-yellow-400 via-50% to-yellow-500 to-90% "
 
 const BatteryInfo = ({ level, height, isCharging }: BatteryInfoProps) => {
-    console.log(level);
-
     const chargeColor = level < 40 && level >= 20 ? YELLOW_CHARGE : level < 20 && level >= 0 ? RED_CHARGE : GREEN_CHARGE;
 
     return (
